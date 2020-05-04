@@ -1,4 +1,4 @@
-package co.uk.fugel.mymapapp
+package co.uk.fugel.simplemapbox
 
 import android.os.Bundle
 import android.widget.Toast
@@ -15,6 +15,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListener {
 
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
         mapboxMap.setStyle(
             Style.Builder().fromUri(
 //                "mapbox://styles/mapbox/cjerxnqt3cgvp2rmyuxbeqme7"
-            "mapbox://styles/mapbox/streets-v10"
+                "mapbox://styles/mapbox/streets-v10"
             )
         ) {
 
@@ -70,10 +71,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
                 isLocationComponentEnabled = true
 
                 // Set the LocationComponent's camera mode
-                cameraMode = CameraMode.TRACKING
+                cameraMode = CameraMode.TRACKING_GPS
 
                 // Set the LocationComponent's render mode
-                renderMode = RenderMode.COMPASS
+                renderMode = RenderMode.COMPASS // NORMAL, COMPASS, GPS
             }
         } else {
             permissionsManager = PermissionsManager(this)
