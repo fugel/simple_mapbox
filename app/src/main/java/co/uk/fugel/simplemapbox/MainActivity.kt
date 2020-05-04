@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
         super.onCreate(savedInstanceState)
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token))
 
+        val statusBarColor = android.graphics.Color.parseColor("#20111111")
+        val navBarColor = android.graphics.Color.parseColor("#20111111")
+
+        setWindowStatusNav(window, statusBarColor, navBarColor)
+
         setContentView(R.layout.activity_main)
 
         mapView?.onCreate(savedInstanceState)
