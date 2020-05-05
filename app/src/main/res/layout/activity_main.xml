@@ -14,8 +14,36 @@
         mapbox:layout_constraintEnd_toEndOf="parent"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent"
-        mapbox:mapbox_cameraTargetLat="51"
+        mapbox:mapbox_cameraTargetLat="0"
         mapbox:mapbox_cameraTargetLng="0"
-        mapbox:mapbox_cameraZoom="8" />
+        mapbox:mapbox_cameraZoom="8"
+        mapbox:mapbox_uiCompassMarginRight="16dp"
+        mapbox:mapbox_uiCompassMarginTop="60dp"
+        mapbox:mapbox_uiLogo="true"
+        mapbox:mapbox_uiLogoMarginBottom="60dp"
+        mapbox:mapbox_uiLogoMarginLeft="16dp"
+        mapbox:mapbox_uiAttribution="true"
+        mapbox:mapbox_uiAttributionGravity="start"
+        mapbox:mapbox_uiAttributionMarginLeft="16dp"
+        mapbox:mapbox_uiAttributionMarginTop="60dp"
+         />
+
+    <ImageButton
+        android:id="@+id/myLocationBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_button"
+        android:contentDescription="@string/goto_me"
+        android:onClick="myLocationClicked"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:tint="@android:color/white"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintHorizontal_bias="0.5"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:layout_constraintVertical_bias="0.92"
+        mapbox:srcCompat="@android:drawable/ic_menu_mylocation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

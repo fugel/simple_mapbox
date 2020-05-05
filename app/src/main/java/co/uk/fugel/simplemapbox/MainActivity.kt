@@ -1,6 +1,7 @@
 package co.uk.fugel.simplemapbox
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -26,8 +27,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
         super.onCreate(savedInstanceState)
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token))
 
-        val statusBarColor = android.graphics.Color.parseColor("#20111111")
-        val navBarColor = android.graphics.Color.parseColor("#20111111")
+        val statusBarColor = android.graphics.Color.parseColor("#BF1565c0")
+        val navBarColor = android.graphics.Color.parseColor("#BF1565c0")
 
         setWindowStatusNav(window, statusBarColor, navBarColor)
 
@@ -48,6 +49,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
 
             // Map is set up and the style has loaded. Now you can add data or make other map adjustments
             enableLocationComponent(it)
+
+//            val uiSettings = mapboxMap.uiSettings
+//            uiSettings.areAllGesturesEnabled()
         }
     }
 
@@ -58,7 +62,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
             // Create and customize the LocationComponent's options
             val customLocationComponentOptions = LocationComponentOptions.builder(this)
                 .trackingGesturesManagement(true)
-                .accuracyColor(ContextCompat.getColor(this, R.color.mapboxGreen))
+                .accuracyColor(ContextCompat.getColor(this, R.color.dodgerBlue))
                 .build()
 
             val locationComponentActivationOptions =
@@ -138,5 +142,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         mapView?.onSaveInstanceState(outState)
+    }
+
+    fun myLocationClicked(view: View) {
+        mapboxMap.locationComponent.apply {
+            cameraMode = CameraMode.TRACKING
+        }
     }
 }
